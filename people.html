@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>People | Sheikh Lab, Jamia Hamdard</title>
+  <meta name="description" content="Meet the researchers of Sheikh Lab at Jamia Hamdard — PhD scholars, postdocs, master's students, and alumni working in immunology and infectious disease.">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://theaxonaut.github.io/jas/people.html">
+  <meta property="og:title"       content="People | Sheikh Lab, Jamia Hamdard">
+  <meta property="og:description" content="Meet the researchers of Sheikh Lab at Jamia Hamdard — PhD scholars, postdocs, master's students, and alumni.">
+  <meta property="og:image"       content="https://theaxonaut.github.io/jas/assets/images/og-image.png">
+
+  <!-- Twitter/X Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="People | Sheikh Lab, Jamia Hamdard">
+  <meta name="twitter:description" content="Meet the researchers of Sheikh Lab at Jamia Hamdard.">
+  <meta name="twitter:image"       content="https://theaxonaut.github.io/jas/assets/images/og-image.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --color-base:      #F5E9E2;
+      --color-primary:   #C97C5D;
+      --color-secondary: #6F9E8F;
+      --color-accent:    #8C6A9E;
+      --color-text:      #2B2B2B;
+      --color-bg:        #FFFDF9;
+      --color-shadow:    #A9654C;
+    }
+
+    html { scroll-behavior: auto; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: var(--color-bg);
+      color: var(--color-text);
+    }
+
+    .font-serif-custom { font-family: 'Playfair Display', serif; }
+
+    .card-offset {
+      border-radius: 12px;
+      border: 2px solid var(--color-text);
+      background-color: var(--color-bg);
+      box-shadow: 5px 5px 0px 0px var(--color-shadow);
+      transition: all 0.2s ease;
+    }
+    .card-offset:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 7px 7px 0px 0px var(--color-shadow);
+    }
+
+    .badge-offset {
+      border: 1.5px solid var(--color-text);
+      box-shadow: 2px 2px 0px 0px var(--color-secondary);
+      border-radius: 8px;
+    }
+
+    html.lenis, html.lenis body { height: auto; }
+    .lenis.lenis-smooth { scroll-behavior: auto !important; }
+    .lenis.lenis-stopped { overflow: hidden; }
+  </style>
+</head>
+<body class="overflow-x-hidden antialiased">
+
+  <!-- Navigation -->
+  <header class="sticky top-0 z-50 border-b-2 backdrop-blur-md py-4"
+          style="background-color: color-mix(in srgb, var(--color-bg) 90%, transparent); border-color: var(--color-text);">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center border-2 transition-all group-hover:translate-x-0.5 group-hover:translate-y-0.5"
+             style="background-color: var(--color-primary); border-color: var(--color-text); box-shadow: 3px 3px 0px 0px var(--color-shadow);">
+          <i class="fa-solid fa-microscope text-white text-xl"></i>
+        </div>
+        <div>
+          <h1 class="text-xl font-bold tracking-tight leading-none" style="color: var(--color-text);">Sheikh Lab</h1>
+          <p class="text-xs font-semibold mt-0.5" style="color: var(--color-secondary);">Jamia Hamdard</p>
+        </div>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-8 font-medium">
+        <a href="index.html#pi"           class="transition-colors hover:text-[color:var(--color-primary)]">PI Profile</a>
+        <a href="index.html#research"     class="transition-colors hover:text-[color:var(--color-primary)]">Research & Projects</a>
+        <a href="publications.html" class="transition-colors hover:text-[color:var(--color-primary)]">Publications</a>
+        <a href="people.html"             class="font-bold" style="color: var(--color-primary);">People</a>
+        <a href="index.html#contact"      class="transition-colors hover:text-[color:var(--color-primary)]">Contact</a>
+      </nav>
+
+      <button id="menu-toggle-btn"
+              class="lg:hidden text-2xl rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all"
+              style="color: var(--color-text);"
+              aria-label="Toggle navigation menu"
+              aria-expanded="false"
+              onclick="toggleMobileMenu()">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+
+    <div id="mobile-menu"
+         class="hidden lg:hidden absolute top-full left-0 right-0 border-b-2 py-4 px-6 flex flex-col gap-4 shadow-lg"
+         style="background-color: var(--color-bg); border-color: var(--color-text);">
+      <a href="index.html#pi"           class="font-medium hover:text-[color:var(--color-primary)]" onclick="toggleMobileMenu()">PI Profile</a>
+      <a href="index.html#research"     class="font-medium hover:text-[color:var(--color-primary)]" onclick="toggleMobileMenu()">Research & Projects</a>
+      <a href="publications.html" class="font-medium hover:text-[color:var(--color-primary)]" onclick="toggleMobileMenu()">Publications</a>
+      <a href="people.html"             class="font-bold" style="color: var(--color-primary);" onclick="toggleMobileMenu()">People</a>
+      <a href="index.html#contact"      class="font-medium hover:text-[color:var(--color-primary)]" onclick="toggleMobileMenu()">Contact</a>
+    </div>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="py-16 border-b-2" style="background-color: var(--color-base); border-color: var(--color-text);">
+    <div class="max-w-7xl mx-auto px-6">
+      <span class="inline-block px-4 py-1.5 border-2 rounded-full text-xs font-bold uppercase tracking-widest mb-4"
+            style="background-color: var(--color-bg); border-color: var(--color-text); color: var(--color-secondary); box-shadow: 2px 2px 0px 0px var(--color-shadow);">
+        Sheikh Lab
+      </span>
+      <h2 class="text-5xl font-serif-custom font-bold mb-3" style="color: var(--color-text);">People</h2>
+      <p class="text-lg font-medium max-w-2xl"
+         style="color: color-mix(in srgb, var(--color-text) 75%, transparent);">
+        Meet the researchers driving discovery at the Sheikh Immunology & Infectious Disease Lab.
+      </p>
+    </div>
+  </section>
+
+  <!-- PI Section — static -->
+  <section class="py-16 border-b-2" style="border-color: var(--color-text);">
+    <div class="max-w-7xl mx-auto px-6">
+      <h3 class="text-xs font-bold uppercase tracking-widest mb-8 pb-2 border-b-2"
+          style="color: var(--color-primary); border-color: var(--color-base);">
+        Principal Investigator
+      </h3>
+
+      <div id="pi-card" class="card-offset p-8 flex flex-col md:flex-row gap-8 items-start max-w-4xl"></div>
+    </div>
+  </section>
+
+  <!-- Dynamic sections -->
+  <section id="section-phd" class="py-16 border-b-2"
+           style="background-color: var(--color-base); border-color: var(--color-text);">
+    <div class="max-w-7xl mx-auto px-6">
+      <h3 class="text-xs font-bold uppercase tracking-widest mb-8 pb-2 border-b-2"
+          style="color: var(--color-primary); border-color: color-mix(in srgb, var(--color-text) 20%, transparent);">
+        PhD Scholars
+      </h3>
+      <div id="grid-phd" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </div>
+  </section>
+
+  <section id="section-postdoc" class="py-16 border-b-2" style="border-color: var(--color-text);">
+    <div class="max-w-7xl mx-auto px-6">
+      <h3 class="text-xs font-bold uppercase tracking-widest mb-8 pb-2 border-b-2"
+          style="color: var(--color-primary); border-color: var(--color-base);">
+        Postdoctoral Researchers
+      </h3>
+      <div id="grid-postdoc" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </div>
+  </section>
+
+  <section id="section-masters" class="py-16 border-b-2"
+           style="background-color: var(--color-base); border-color: var(--color-text);">
+    <div class="max-w-7xl mx-auto px-6">
+      <h3 class="text-xs font-bold uppercase tracking-widest mb-8 pb-2 border-b-2"
+          style="color: var(--color-primary); border-color: color-mix(in srgb, var(--color-text) 20%, transparent);">
+        Master's Students
+      </h3>
+      <div id="grid-masters" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </div>
+  </section>
+
+  <section id="section-alumni" class="py-16" style="border-color: var(--color-text);">
+    <div class="max-w-7xl mx-auto px-6">
+      <h3 class="text-xs font-bold uppercase tracking-widest mb-2 pb-2 border-b-2"
+          style="color: var(--color-primary); border-color: var(--color-base);">
+        Alumni
+      </h3>
+      <p class="text-xs mb-8"
+         style="color: color-mix(in srgb, var(--color-text) 50%, transparent);">
+        Former PhD scholars and postdoctoral researchers who trained at Sheikh Lab.
+      </p>
+      <div id="grid-alumni" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t-4 py-12" style="background-color: var(--color-text); border-color: var(--color-primary);">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background-color: var(--color-primary);">
+            <i class="fa-solid fa-microscope text-white text-sm"></i>
+          </div>
+          <span class="text-lg font-bold" style="color: var(--color-bg);">Sheikh Lab</span>
+        </div>
+        <p id="footer-tagline" class="text-sm text-gray-400 mb-4"></p>
+        <span class="text-xs text-gray-500">
+          © <span id="footer-year"></span> Sheikh Lab, Jamia Hamdard. All rights reserved.
+        </span>
+      </div>
+      <div>
+        <h4 class="text-sm font-bold mb-4 uppercase tracking-wider" style="color: var(--color-base);">Helpful Navigation</h4>
+        <div class="flex flex-col gap-2 text-sm text-gray-400">
+          <a href="index.html#pi"           class="hover:text-white transition">Principal Investigator</a>
+          <a href="index.html#research"     class="hover:text-white transition">Research Themes</a>
+          <a href="publications.html" class="hover:text-white transition">Publications</a>
+          <a href="people.html"             class="hover:text-white transition">People</a>
+          <a href="index.html#contact"      class="hover:text-white transition">Contact</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-sm font-bold mb-4 uppercase tracking-wider" style="color: var(--color-base);">Faculty & Institutional Links</h4>
+        <div id="footer-links" class="flex flex-col gap-2 text-sm text-gray-400"></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Data files first -->
+  <script src="site-data.js"></script>
+  <script src="people-data.js"></script>
+
+  <script>
+    const ROLE_CONFIG = {
+      phd:     { label: "PhD",     bg: "var(--color-accent)",    color: "white" },
+      postdoc: { label: "Postdoc", bg: "var(--color-secondary)", color: "white" },
+      masters: { label: "M.Sc",    bg: "var(--color-accent)",    color: "white" },
+    };
+
+    /* ── Avatar HTML helper ── */
+    function avatarHTML(member, size = 'lg') {
+      const isAlumni    = member.isAlumni;
+      const iconColor   = isAlumni
+        ? "color-mix(in srgb, var(--color-text) 35%, transparent)"
+        : "var(--color-primary)";
+      const dimensions  = size === 'lg' ? 'w-20 h-20' : 'w-14 h-14';
+      const iconSize    = size === 'lg' ? 'text-3xl'  : 'text-2xl';
+      const shadow      = size === 'lg'
+        ? 'box-shadow:3px 3px 0px 0px var(--color-shadow);'
+        : 'box-shadow:2px 2px 0px 0px var(--color-shadow);';
+
+      const inner = member.image
+        ? `<img src="${member.image}"
+                alt="Photo of ${member.name}"
+                class="w-full h-full object-cover"
+                onerror="this.style.display='none'">`
+        : `<div class="absolute inset-0 opacity-10"
+                style="background-image:radial-gradient(var(--color-primary) 2px,transparent 2px);background-size:10px 10px;"></div>
+           <i class="fa-solid fa-user ${iconSize}" style="color:${iconColor};"></i>`;
+
+      return `
+        <div class="${dimensions} rounded-xl border-2 flex items-center justify-center relative overflow-hidden shrink-0"
+             style="background-color:var(--color-base);border-color:var(--color-text);${shadow}">
+          ${inner}
+        </div>`;
+    }
+
+    /* ── Linked card (PhD / Postdoc / Alumni) ── */
+    function buildLinkedCard(member) {
+      const rc          = ROLE_CONFIG[member.role];
+      const tenure      = member.left ? `${member.joined} – ${member.left}` : `Joined ${member.joined}`;
+      const area        = member.researchAreas[0] || "";
+      const formerLabel = member.isAlumni ? `Former ${rc.label}` : rc.label;
+
+      const alumniBadge = member.isAlumni
+        ? `<span class="text-xs font-bold px-2 py-0.5 rounded-full border"
+                style="background-color:var(--color-base);color:var(--color-text);border-color:var(--color-text);">
+             Alumnus
+           </span>`
+        : '';
+
+      return `
+        <a href="people/${member.id}.html"
+           class="card-offset p-6 flex flex-col gap-4 cursor-pointer no-underline"
+           style="background-color:var(--color-bg);">
+          ${avatarHTML(member, 'lg')}
+          <div>
+            <div class="flex items-center gap-2 flex-wrap mb-1">
+              <h4 class="font-bold text-base" style="color:var(--color-text);">${member.name}</h4>
+              <span class="text-xs font-bold px-2 py-0.5 rounded-full border"
+                    style="background-color:${rc.bg};color:${rc.color};border-color:var(--color-text);">
+                ${formerLabel}
+              </span>
+              ${alumniBadge}
+            </div>
+            <p class="text-xs font-semibold mb-2" style="color:var(--color-secondary);">${tenure}</p>
+            <p class="text-xs leading-relaxed"
+               style="color:color-mix(in srgb,var(--color-text) 70%,transparent);">${area}</p>
+          </div>
+          <span class="text-xs font-bold mt-auto flex items-center gap-1" style="color:var(--color-primary);">
+            View Profile <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </span>
+        </a>`;
+    }
+
+    /* ── Masters card (no link) ── */
+    function buildMastersCard(member) {
+      const batch = member.left
+        ? `${member.joined} – ${member.left}`
+        : `Batch: ${member.joined}`;
+      const area = member.researchAreas[0] || "";
+
+      return `
+        <div class="card-offset p-5 flex gap-4 items-start" style="background-color:var(--color-bg);">
+          ${avatarHTML(member, 'sm')}
+          <div>
+            <div class="flex items-center gap-2 flex-wrap mb-1">
+              <h4 class="font-bold text-sm" style="color:var(--color-text);">${member.name}</h4>
+              <span class="text-xs font-bold px-2 py-0.5 rounded-full border"
+                    style="background-color:var(--color-accent);color:white;border-color:var(--color-text);">M.Sc</span>
+            </div>
+            <p class="text-xs font-semibold mb-1" style="color:var(--color-secondary);">${batch}</p>
+            <p class="text-xs leading-relaxed"
+               style="color:color-mix(in srgb,var(--color-text) 70%,transparent);">${area}</p>
+          </div>
+        </div>`;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const D = SITE_DATA;
+
+      /* ── PI Card — driven from site-data.js ── */
+      const piAvatarInner = D.pi.image
+        ? `<img src="${D.pi.image}"
+                alt="Photo of ${D.pi.name}"
+                class="w-full h-full object-cover rounded-xl"
+                onerror="this.style.display='none'">`
+        : `<div class="absolute inset-0 opacity-10"
+                style="background-image:radial-gradient(var(--color-primary) 2px,transparent 2px);background-size:12px 12px;"></div>
+           <i class="fa-solid fa-user-doctor text-5xl" style="color:var(--color-primary);"></i>`;
+
+      document.getElementById('pi-card').innerHTML = `
+        <div class="w-36 h-36 rounded-xl border-2 flex items-center justify-center shrink-0 relative overflow-hidden"
+             style="background-color:var(--color-base);border-color:var(--color-text);box-shadow:4px 4px 0px 0px var(--color-shadow);">
+          ${piAvatarInner}
+        </div>
+        <div class="flex-1">
+          <div class="flex flex-wrap items-center gap-3 mb-1">
+            <h4 class="text-2xl font-serif-custom font-bold" style="color:var(--color-text);">${D.pi.name}</h4>
+            <span class="text-xs font-bold px-3 py-1 rounded-full border"
+                  style="background-color:var(--color-primary);color:white;border-color:var(--color-text);">PI & Head</span>
+          </div>
+          <p class="text-sm font-semibold mb-3" style="color:var(--color-secondary);">
+            ${D.pi.title} · ${D.pi.department}
+          </p>
+          <p class="text-sm leading-relaxed mb-4"
+             style="color:color-mix(in srgb,var(--color-text) 80%,transparent);">
+            ${D.pi.bio.split('.').slice(0, 2).join('.') + '.'}
+          </p>
+          <div class="flex flex-wrap gap-2 mb-5">
+            ${D.pi.researchInterests.slice(0, 4).map(r =>
+              `<span class="badge-offset px-2.5 py-1 text-xs font-bold"
+                     style="background-color:var(--color-base);">${r}</span>`
+            ).join('')}
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <a href="${D.pi.scholarUrl}" target="_blank"
+               class="inline-flex items-center gap-2 text-xs font-bold px-3 py-2 border-2 rounded-lg transition-all hover:translate-x-0.5 hover:translate-y-0.5"
+               style="border-color:var(--color-text);background-color:var(--color-bg);box-shadow:2px 2px 0px 0px var(--color-shadow);">
+              <i class="fa-brands fa-google" style="color:var(--color-primary);"></i> Google Scholar
+            </a>
+            <a href="index.html#pi"
+               class="inline-flex items-center gap-2 text-xs font-bold px-3 py-2 border-2 rounded-lg transition-all hover:translate-x-0.5 hover:translate-y-0.5"
+               style="border-color:var(--color-text);background-color:var(--color-bg);box-shadow:2px 2px 0px 0px var(--color-shadow);">
+              <i class="fa-solid fa-arrow-up-right-from-square" style="color:var(--color-secondary);"></i> Full Profile
+            </a>
+          </div>
+        </div>`;
+
+      /* ── Member Grids ── */
+      const visible = LAB_MEMBERS.filter(m => !m.hidden);
+      const grids = {
+        phd:    document.getElementById('grid-phd'),
+        postdoc:document.getElementById('grid-postdoc'),
+        masters:document.getElementById('grid-masters'),
+        alumni: document.getElementById('grid-alumni'),
+      };
+
+      visible.forEach(member => {
+        if      (member.isAlumni)          grids.alumni.insertAdjacentHTML('beforeend',  buildLinkedCard(member));
+        else if (member.role === 'masters') grids.masters.insertAdjacentHTML('beforeend', buildMastersCard(member));
+        else if (member.role === 'phd')     grids.phd.insertAdjacentHTML('beforeend',    buildLinkedCard(member));
+        else if (member.role === 'postdoc') grids.postdoc.insertAdjacentHTML('beforeend',buildLinkedCard(member));
+      });
+
+      // Hide empty sections
+      ['phd','postdoc','masters','alumni'].forEach(key => {
+        if (grids[key].children.length === 0) {
+          document.getElementById(`section-${key}`).style.display = 'none';
+        }
+      });
+
+      /* ── Footer ── */
+      document.getElementById('footer-tagline').textContent = D.footer.tagline;
+      document.getElementById('footer-year').textContent    = new Date().getFullYear();
+      document.getElementById('footer-links').innerHTML = `
+        <a href="${D.pi.facultyUrl}" target="_blank" class="hover:text-white transition">Jamia Hamdard Institutional Profile</a>
+        <a href="${D.pi.scholarUrl}" target="_blank" class="hover:text-white transition">Google Scholar Profile</a>`;
+    });
+
+    /* ── Mobile Menu ── */
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const btn  = document.getElementById('menu-toggle-btn');
+      const isHidden = menu.classList.toggle('hidden');
+      btn.setAttribute('aria-expanded', String(!isHidden));
+    }
+
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+      const menu   = document.getElementById('mobile-menu');
+      const btn    = document.getElementById('menu-toggle-btn');
+      const header = document.querySelector('header');
+      if (!menu.classList.contains('hidden') && !header.contains(e.target)) {
+        menu.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    /* ── Lenis ── */
+    function initLenis() {
+      const lenis = new Lenis({
+        duration: 0.5,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smooth: true,
+      });
+      function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+      requestAnimationFrame(raf);
+    }
+  </script>
+
+  <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js" async onload="initLenis()"></script>
+
+</body>
+</html>

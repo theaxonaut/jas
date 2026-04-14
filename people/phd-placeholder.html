@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Title and meta set dynamically from people-data.js -->
+  <title>Profile | Sheikh Lab</title>
+  <meta id="meta-description" name="description"  content="">
+  <meta id="og-title"         property="og:title"       content="">
+  <meta id="og-description"   property="og:description" content="">
+  <meta id="og-image"         property="og:image"       content="">
+  <meta id="og-url"           property="og:url"         content="">
+  <meta property="og:type"    content="profile">
+
+  <meta name="twitter:card"   content="summary_large_image">
+  <meta id="tw-title"         name="twitter:title"       content="">
+  <meta id="tw-description"   name="twitter:description" content="">
+  <meta id="tw-image"         name="twitter:image"       content="">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --color-base:      #F5E9E2;
+      --color-primary:   #C97C5D;
+      --color-secondary: #6F9E8F;
+      --color-accent:    #8C6A9E;
+      --color-text:      #2B2B2B;
+      --color-bg:        #FFFDF9;
+      --color-shadow:    #A9654C;
+    }
+
+    html { scroll-behavior: auto; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: var(--color-bg);
+      color: var(--color-text);
+    }
+
+    .font-serif-custom { font-family: 'Playfair Display', serif; }
+
+    .card-offset {
+      border-radius: 12px;
+      border: 2px solid var(--color-text);
+      background-color: var(--color-bg);
+      box-shadow: 5px 5px 0px 0px var(--color-shadow);
+    }
+
+    .badge-offset {
+      border: 1.5px solid var(--color-text);
+      box-shadow: 2px 2px 0px 0px var(--color-secondary);
+      border-radius: 8px;
+    }
+
+    .btn-sm {
+      border-radius: 10px;
+      border: 2px solid var(--color-text);
+      background-color: var(--color-bg);
+      font-weight: 700;
+      font-size: 0.75rem;
+      box-shadow: 2px 2px 0px 0px var(--color-shadow);
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.75rem;
+      text-decoration: none;
+      color: var(--color-text);
+    }
+    .btn-sm:hover {
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0px 0px var(--color-shadow);
+    }
+
+    html.lenis, html.lenis body { height: auto; }
+    .lenis.lenis-smooth { scroll-behavior: auto !important; }
+    .lenis.lenis-stopped { overflow: hidden; }
+  </style>
+</head>
+<body class="overflow-x-hidden antialiased">
+
+  <!-- Navigation -->
+  <header class="sticky top-0 z-50 border-b-2 backdrop-blur-md py-4"
+          style="background-color: color-mix(in srgb, var(--color-bg) 90%, transparent); border-color: var(--color-text);">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+
+      <a href="../index.html" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center border-2 transition-all group-hover:translate-x-0.5 group-hover:translate-y-0.5"
+             style="background-color: var(--color-primary); border-color: var(--color-text); box-shadow: 3px 3px 0px 0px var(--color-shadow);">
+          <i class="fa-solid fa-microscope text-white text-xl"></i>
+        </div>
+        <div>
+          <h1 class="text-xl font-bold tracking-tight leading-none" style="color: var(--color-text);">Sheikh Lab</h1>
+          <p class="text-xs font-semibold mt-0.5" style="color: var(--color-secondary);">Jamia Hamdard</p>
+        </div>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-8 font-medium">
+        <a href="../index.html#pi"           class="transition-colors hover:text-[color:var(--color-primary)]">PI Profile</a>
+        <a href="../index.html#research"     class="transition-colors hover:text-[color:var(--color-primary)]">Research & Projects</a>
+        <a href="../publications.html" class="transition-colors hover:text-[color:var(--color-primary)]">Publications</a>
+        <a href="../people.html"             class="transition-colors hover:text-[color:var(--color-primary)]">People</a>
+        <a href="../index.html#contact"      class="transition-colors hover:text-[color:var(--color-primary)]">Contact</a>
+      </nav>
+
+      <button id="menu-toggle-btn"
+              class="lg:hidden text-2xl rounded-lg focus:outline-none transition-all"
+              style="color: var(--color-text);"
+              aria-label="Toggle navigation menu"
+              aria-expanded="false"
+              onclick="toggleMobileMenu()">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+
+    <div id="mobile-menu"
+         class="hidden lg:hidden absolute top-full left-0 right-0 border-b-2 py-4 px-6 flex flex-col gap-4 shadow-lg"
+         style="background-color: var(--color-bg); border-color: var(--color-text);">
+      <a href="../index.html#pi"           class="font-medium hover:text-[color:var(--color-primary)]" onclick="toggleMobileMenu()">PI Profile</a>
+      <a href="index.html#research"     class="font-medium hover:text-[color:var(--color-primary)]" onclick="toggleMobileMenu()">Research & Projects</a>
+      <a href="../publications.html" class="font-medium hover:text-[color:var(--color-primary)]" onclick="toggleMobileMenu()">Publications</a>
+      <a href="../people.html"             class="font-medium hover:text-[color:var(--color-primary)]" onclick="toggleMobileMenu()">People</a>
+      <a href="index.html#contact"      class="font-medium hover:text-[color:var(--color-primary)]" onclick="toggleMobileMenu()">Contact</a>
+    </div>
+  </header>
+
+  <!-- Back breadcrumb -->
+  <div class="border-b-2 py-3 px-6"
+       style="background-color: var(--color-base); border-color: var(--color-text);">
+    <div class="max-w-7xl mx-auto">
+      <a href="../people.html"
+         class="inline-flex items-center gap-2 text-xs font-bold transition-colors hover:text-[color:var(--color-primary)]">
+        <i class="fa-solid fa-arrow-left"></i> Back to People
+      </a>
+    </div>
+  </div>
+
+  <!-- Profile Hero -->
+  <section class="py-16 border-b-2" style="background-color: var(--color-base); border-color: var(--color-text);">
+    <div class="max-w-4xl mx-auto px-6 flex flex-col md:flex-row gap-8 items-start">
+
+      <!-- Avatar -->
+      <div id="profile-avatar"
+           class="w-36 h-36 rounded-xl border-2 flex items-center justify-center shrink-0 relative overflow-hidden"
+           style="background-color: var(--color-bg); border-color: var(--color-text); box-shadow: 5px 5px 0px 0px var(--color-shadow);">
+        <div class="absolute inset-0 opacity-10"
+             style="background-image: radial-gradient(var(--color-primary) 2px, transparent 2px); background-size: 12px 12px;"></div>
+        <i id="profile-avatar-icon" class="fa-solid fa-user text-5xl" style="color: var(--color-primary);"></i>
+      </div>
+
+      <!-- Identity -->
+      <div class="flex-1">
+        <div class="flex flex-wrap items-center gap-3 mb-2">
+          <h2 id="profile-name" class="text-3xl font-serif-custom font-bold" style="color: var(--color-text);"></h2>
+          <span id="profile-role-badge" class="text-xs font-bold px-3 py-1 rounded-full border"></span>
+          <span id="profile-alumni-badge"
+                class="hidden text-xs font-bold px-3 py-1 rounded-full border"
+                style="background-color: var(--color-base); color: var(--color-text); border-color: var(--color-text);">
+            Alumnus
+          </span>
+        </div>
+
+        <p id="profile-affiliation" class="text-sm font-semibold mb-1" style="color: var(--color-secondary);"></p>
+        <p id="profile-tenure"      class="text-xs font-semibold mb-4 opacity-60"></p>
+        <p id="profile-bio"         class="text-sm leading-relaxed mb-5"
+           style="color: color-mix(in srgb, var(--color-text) 80%, transparent);"></p>
+
+        <!-- Email — hidden if empty -->
+        <div id="profile-email" class="hidden mb-3">
+          <a id="profile-email-link" href="#" class="btn-sm"
+             style="color: var(--color-secondary);">
+            <i class="fa-solid fa-envelope" style="color: var(--color-secondary);"></i>
+            <span id="profile-email-text"></span>
+          </a>
+        </div>
+
+        <!-- External links -->
+        <div id="profile-links" class="flex flex-wrap gap-3"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Details Grid -->
+  <section class="py-16">
+    <div class="max-w-4xl mx-auto px-6 grid md:grid-cols-2 gap-8">
+
+      <!-- Research Areas -->
+      <div class="card-offset p-6">
+        <h3 class="text-xs font-bold uppercase tracking-widest mb-4"
+            style="color: var(--color-primary);">Research Interests</h3>
+        <div id="profile-research-areas" class="flex flex-wrap gap-2"></div>
+      </div>
+
+      <!-- Current Project -->
+      <div class="card-offset p-6">
+        <h3 class="text-xs font-bold uppercase tracking-widest mb-4"
+            style="color: var(--color-primary);">Current Project</h3>
+        <p id="profile-project" class="text-sm leading-relaxed"
+           style="color: color-mix(in srgb, var(--color-text) 80%, transparent);"></p>
+      </div>
+
+      <!-- Education -->
+      <div class="card-offset p-6">
+        <h3 class="text-xs font-bold uppercase tracking-widest mb-4"
+            style="color: var(--color-primary);">Education</h3>
+        <ul id="profile-education" class="space-y-3"></ul>
+      </div>
+
+      <!-- Publications -->
+      <div class="card-offset p-6">
+        <h3 class="text-xs font-bold uppercase tracking-widest mb-4"
+            style="color: var(--color-primary);">Publications</h3>
+        <ul id="profile-publications" class="space-y-3"></ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t-4 py-12" style="background-color: var(--color-text); border-color: var(--color-primary);">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-8 h-8 rounded-lg flex items-center justify-center"
+               style="background-color: var(--color-primary);">
+            <i class="fa-solid fa-microscope text-white text-sm"></i>
+          </div>
+          <span class="text-lg font-bold" style="color: var(--color-bg);">Sheikh Lab</span>
+        </div>
+        <p id="footer-tagline" class="text-sm text-gray-400 mb-4"></p>
+        <span class="text-xs text-gray-500">
+          © <span id="footer-year"></span> Sheikh Lab, Jamia Hamdard. All rights reserved.
+        </span>
+      </div>
+      <div>
+        <h4 class="text-sm font-bold mb-4 uppercase tracking-wider" style="color: var(--color-base);">Helpful Navigation</h4>
+        <div class="flex flex-col gap-2 text-sm text-gray-400">
+          <a href="../index.html#pi"           class="hover:text-white transition">Principal Investigator</a>
+          <a href="index.html#research"     class="hover:text-white transition">Research Themes</a>
+          <a href="../publications.html" class="hover:text-white transition">Publications</a>
+          <a href="../people.html"             class="hover:text-white transition">People</a>
+          <a href="index.html#contact"      class="hover:text-white transition">Contact</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-sm font-bold mb-4 uppercase tracking-wider" style="color: var(--color-base);">Faculty & Institutional Links</h4>
+        <div id="footer-links" class="flex flex-col gap-2 text-sm text-gray-400"></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Data files — site-data first, then people-data -->
+  <script src="../site-data.js"></script>
+  <script src="../people-data.js"></script>
+
+  <script>
+    const ROLE_LABELS = {
+      phd:     "PhD Scholar",
+      postdoc: "Postdoctoral Researcher",
+      masters: "Master's Student",
+    };
+
+    const ROLE_COLORS = {
+      phd:     { bg: "var(--color-accent)",    color: "white" },
+      postdoc: { bg: "var(--color-secondary)", color: "white" },
+      masters: { bg: "var(--color-accent)",    color: "white" },
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const SD = SITE_DATA;
+
+      /* ── Find member by page filename ──
+         Filename must match member id in people-data.js
+         e.g. phd-scholar-1.html → id: "phd-scholar-1"
+      ── */
+      const pageId = location.pathname.split('/').pop().replace('.html', '');
+      const P = LAB_MEMBERS.find(m => m.id === pageId);
+
+      // If member not found — show friendly error
+      if (!P) {
+        document.body.innerHTML = `
+          <div style="padding:4rem;text-align:center;font-family:'Outfit',sans-serif;">
+            <h2 style="font-size:1.5rem;font-weight:700;color:#2B2B2B;">Profile not found</h2>
+            <p style="margin-top:1rem;opacity:0.6;">
+              No member with id "<strong>${pageId}</strong>" found in people-data.js
+            </p>
+            <a href="../people.html"
+               style="display:inline-block;margin-top:2rem;font-weight:700;color:#C97C5D;">
+              ← Back to People
+            </a>
+          </div>`;
+        return;
+      }
+
+      /* ── Page title ── */
+      document.title = `${P.name} | Sheikh Lab`;
+
+      /* ── Meta & OG tags ── */
+      const siteUrl = SD.meta.siteUrl;
+      const ogImg   = P.image
+        ? `${siteUrl}/${P.image}`
+        : `${siteUrl}/${SD.meta.ogImage}`;
+      const desc    = `${P.name} — ${ROLE_LABELS[P.role]} at Sheikh Lab, Jamia Hamdard. Research in ${P.researchAreas[0] || 'immunology and infectious disease'}.`;
+      const pageUrl = `${siteUrl}/${P.id}.html`;
+
+      document.getElementById('meta-description').setAttribute('content', desc);
+      document.getElementById('og-title').setAttribute('content',       `${P.name} | Sheikh Lab`);
+      document.getElementById('og-description').setAttribute('content', desc);
+      document.getElementById('og-image').setAttribute('content',       ogImg);
+      document.getElementById('og-url').setAttribute('content',         pageUrl);
+      document.getElementById('tw-title').setAttribute('content',       `${P.name} | Sheikh Lab`);
+      document.getElementById('tw-description').setAttribute('content', desc);
+      document.getElementById('tw-image').setAttribute('content',       ogImg);
+
+      /* ── Avatar ──
+         Show image if set in people-data.js, fallback to icon
+      ── */
+      const avatarEl   = document.getElementById('profile-avatar');
+      const avatarIcon = document.getElementById('profile-avatar-icon');
+
+      if (P.image) {
+        // Hide the fallback icon
+        avatarIcon.style.display = 'none';
+
+        // Create and inject the image
+        const img     = document.createElement('img');
+        img.src       = `../${P.image}`;
+        img.alt       = `Photo of ${P.name}`;
+        img.className = 'absolute inset-0 w-full h-full object-cover rounded-xl';
+
+        // If image fails to load — show icon fallback
+        img.onerror = () => {
+          img.remove();
+          avatarIcon.style.display = '';
+          if (P.isAlumni) {
+            avatarIcon.style.color = 'color-mix(in srgb, var(--color-text) 35%, transparent)';
+          }
+        };
+
+        avatarEl.appendChild(img);
+      } else if (P.isAlumni) {
+        // No image + alumni → grey out the icon
+        avatarIcon.style.color = 'color-mix(in srgb, var(--color-text) 35%, transparent)';
+      }
+
+      /* ── Name ── */
+      document.getElementById('profile-name').textContent = P.name;
+
+      /* ── Role badge ── */
+      const roleBadge = document.getElementById('profile-role-badge');
+      const rc        = ROLE_COLORS[P.role];
+      const roleLabel = P.isAlumni
+        ? `Former ${ROLE_LABELS[P.role]}`
+        : ROLE_LABELS[P.role];
+      roleBadge.textContent            = roleLabel;
+      roleBadge.style.backgroundColor  = rc.bg;
+      roleBadge.style.color            = rc.color;
+      roleBadge.style.borderColor      = 'var(--color-text)';
+
+      /* ── Alumni badge ── */
+      if (P.isAlumni) {
+        document.getElementById('profile-alumni-badge').classList.remove('hidden');
+      }
+
+      /* ── Affiliation ── */
+      document.getElementById('profile-affiliation').textContent =
+        `${ROLE_LABELS[P.role]} · ${P.department}, ${P.university}`;
+
+      /* ── Tenure ── */
+      document.getElementById('profile-tenure').textContent = P.left
+        ? `${P.joined} – ${P.left}`
+        : `Joined ${P.joined}`;
+
+      /* ── Bio ── */
+      document.getElementById('profile-bio').textContent = P.bio;
+
+      /* ── Email ──
+         Shown only if email is set in people-data.js
+      ── */
+      if (P.email) {
+        const emailWrapper = document.getElementById('profile-email');
+        const emailLink    = document.getElementById('profile-email-link');
+        const emailText    = document.getElementById('profile-email-text');
+        emailWrapper.classList.remove('hidden');
+        emailLink.href        = `mailto:${P.email}`;
+        emailText.textContent = P.email;
+      }
+
+      /* ── External links ── */
+      const linksEl  = document.getElementById('profile-links');
+      const linkDefs = [
+        { key: 'scholar',  icon: 'fa-brands fa-google',   label: 'Google Scholar' },
+        { key: 'linkedin', icon: 'fa-brands fa-linkedin',  label: 'LinkedIn' },
+        { key: 'github',   icon: 'fa-brands fa-github',    label: 'GitHub' },
+        { key: 'orcid',    icon: 'fa-solid fa-id-card',    label: 'ORCID' },
+        { key: 'website',  icon: 'fa-solid fa-globe',      label: 'Website' },
+      ];
+      linkDefs.forEach(({ key, icon, label }) => {
+        if (!P.links[key]) return;
+        const a     = document.createElement('a');
+        a.href      = P.links[key];
+        a.target    = '_blank';
+        a.className = 'btn-sm';
+        a.innerHTML = `<i class="${icon}" style="color:var(--color-primary);"></i> ${label}`;
+        linksEl.appendChild(a);
+      });
+
+      /* ── Research Areas ── */
+      const raEl = document.getElementById('profile-research-areas');
+      if (P.researchAreas.length === 0) {
+        raEl.innerHTML = `<span class="text-xs italic opacity-50">Not listed yet.</span>`;
+      } else {
+        P.researchAreas.forEach(area => {
+          const span           = document.createElement('span');
+          span.className       = 'badge-offset px-3 py-1 text-xs font-bold';
+          span.style.backgroundColor = 'var(--color-base)';
+          span.textContent     = area;
+          raEl.appendChild(span);
+        });
+      }
+
+      /* ── Current Project ── */
+      document.getElementById('profile-project').textContent =
+        P.currentProject || (P.isAlumni ? 'N/A — Alumni' : 'To be updated.');
+
+      /* ── Education ── */
+      const eduEl = document.getElementById('profile-education');
+      if (P.education.length === 0) {
+        eduEl.innerHTML = `<li class="text-xs italic opacity-50">Not listed yet.</li>`;
+      } else {
+        P.education.forEach(e => {
+          const li = document.createElement('li');
+          li.className = 'flex flex-col';
+          li.innerHTML = `
+            <span class="text-sm font-bold" style="color:var(--color-text);">${e.degree}</span>
+            <span class="text-xs opacity-65">${e.institution} · ${e.year}</span>`;
+          eduEl.appendChild(li);
+        });
+      }
+
+      /* ── Publications ── */
+      const pubEl = document.getElementById('profile-publications');
+      if (!P.publications || P.publications.length === 0) {
+        pubEl.innerHTML = `<li class="text-xs italic opacity-50">No publications listed yet.</li>`;
+      } else {
+        P.publications.forEach(pub => {
+          const li = document.createElement('li');
+          li.className = 'flex flex-col gap-0.5';
+          const titleEl = pub.doi
+            ? `<a href="${pub.doi}" target="_blank"
+                  class="text-sm font-semibold hover:underline"
+                  style="color:var(--color-primary);">${pub.title}</a>`
+            : `<span class="text-sm font-semibold"
+                    style="color:var(--color-primary);">${pub.title}</span>`;
+          li.innerHTML = `
+            ${titleEl}
+            <span class="text-xs opacity-60">${pub.journal} · ${pub.year}</span>`;
+          pubEl.appendChild(li);
+        });
+      }
+
+      /* ── Footer ── */
+      document.getElementById('footer-tagline').textContent = SD.footer.tagline;
+      document.getElementById('footer-year').textContent    = new Date().getFullYear();
+      document.getElementById('footer-links').innerHTML = `
+        <a href="${SD.pi.facultyUrl}" target="_blank" class="hover:text-white transition">
+          Jamia Hamdard Institutional Profile
+        </a>
+        <a href="${SD.pi.scholarUrl}" target="_blank" class="hover:text-white transition">
+          Google Scholar Profile
+        </a>`;
+
+    }); // end DOMContentLoaded
+
+    /* ── Mobile Menu ── */
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const btn  = document.getElementById('menu-toggle-btn');
+      const isHidden = menu.classList.toggle('hidden');
+      btn.setAttribute('aria-expanded', String(!isHidden));
+    }
+
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+      const menu   = document.getElementById('mobile-menu');
+      const btn    = document.getElementById('menu-toggle-btn');
+      const header = document.querySelector('header');
+      if (!menu.classList.contains('hidden') && !header.contains(e.target)) {
+        menu.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    /* ── Lenis ── */
+    function initLenis() {
+      const lenis = new Lenis({
+        duration: 0.5,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smooth: true,
+      });
+      function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+      requestAnimationFrame(raf);
+    }
+  </script>
+
+  <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js" async onload="initLenis()"></script>
+
+</body>
+</html>

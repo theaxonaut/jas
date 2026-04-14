@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://theaxonaut.github.io/jas/sitemap.xml

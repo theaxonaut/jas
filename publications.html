@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Publications | Sheikh Lab, Jamia Hamdard</title>
+  <meta name="description" content="Full list of publications from Sheikh Immunology & Infectious Disease Lab, Jamia Hamdard — tuberculosis immunology, vaccine development, and infectious disease research.">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://theaxonaut.github.io/jas/publications.html">
+  <meta property="og:title"       content="Publications | Sheikh Lab, Jamia Hamdard">
+  <meta property="og:description" content="Full list of publications from Sheikh Lab — tuberculosis immunology, vaccine development, and infectious disease research.">
+  <meta property="og:image"       content="https://theaxonaut.github.io/jas/assets/images/og-image.png">
+
+  <!-- Twitter/X -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Publications | Sheikh Lab, Jamia Hamdard">
+  <meta name="twitter:description" content="Full list of publications from Sheikh Lab.">
+  <meta name="twitter:image"       content="https://theaxonaut.github.io/jas/assets/images/og-image.png">
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --color-base:      #F5E9E2;
+      --color-primary:   #C97C5D;
+      --color-secondary: #6F9E8F;
+      --color-accent:    #8C6A9E;
+      --color-text:      #2B2B2B;
+      --color-bg:        #FFFDF9;
+      --color-shadow:    #A9654C;
+    }
+
+    html { scroll-behavior: auto; }
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: var(--color-bg);
+      color: var(--color-text);
+    }
+    .font-serif-custom { font-family: 'Playfair Display', serif; }
+
+    .card-offset {
+      border-radius: 12px;
+      border: 2px solid var(--color-text);
+      background-color: var(--color-bg);
+      box-shadow: 5px 5px 0px 0px var(--color-shadow);
+      transition: all 0.2s ease;
+    }
+    .card-offset:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 7px 7px 0px 0px var(--color-shadow);
+    }
+
+    .badge-offset {
+      border: 1.5px solid var(--color-text);
+      box-shadow: 2px 2px 0px 0px var(--color-secondary);
+      border-radius: 8px;
+    }
+
+    /* Filter buttons */
+    .filter-btn {
+      border-radius: 10px;
+      border: 2px solid var(--color-text);
+      background-color: var(--color-bg);
+      font-weight: 700;
+      font-size: 0.75rem;
+      padding: 0.35rem 0.85rem;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      box-shadow: 2px 2px 0px 0px var(--color-shadow);
+    }
+    .filter-btn:hover {
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0px 0px var(--color-shadow);
+    }
+    .filter-btn.active {
+      background-color: var(--color-primary);
+      color: white;
+    }
+
+    /* Type badge colours */
+    .type-article       { background-color: var(--color-primary);   color: white; }
+    .type-review        { background-color: var(--color-secondary);  color: white; }
+    .type-book-chapter  { background-color: var(--color-accent);     color: white; }
+    .type-conference    { background-color: var(--color-text);       color: white; }
+
+    /* Year divider */
+    .year-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      border-bottom: 2px solid var(--color-text);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Copy DOI button */
+    .btn-doi {
+      border-radius: 8px;
+      border: 1.5px solid var(--color-text);
+      background-color: var(--color-bg);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.25rem 0.6rem;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      box-shadow: 2px 2px 0px 0px var(--color-shadow);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      color: var(--color-text);
+    }
+    .btn-doi:hover {
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0px 0px var(--color-shadow);
+    }
+    .btn-doi.copied {
+      background-color: var(--color-secondary);
+      color: white;
+      border-color: var(--color-secondary);
+    }
+
+    /* Hidden paper (filtered out) */
+    .paper-card.hidden-paper {
+      display: none;
+    }
+
+    html.lenis, html.lenis body { height: auto; }
+    .lenis.lenis-smooth { scroll-behavior: auto !important; }
+    .lenis.lenis-stopped { overflow: hidden; }
+  </style>
+</head>
+<body class="overflow-x-hidden antialiased">
+
+  <!-- Navigation -->
+  <header class="sticky top-0 z-50 border-b-2 backdrop-blur-md py-4"
+          style="background-color: color-mix(in srgb, var(--color-bg) 90%, transparent); border-color: var(--color-text);">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center border-2 transition-all group-hover:translate-x-0.5 group-hover:translate-y-0.5"
+             style="background-color: var(--color-primary); border-color: var(--color-text); box-shadow: 3px 3px 0px 0px var(--color-shadow);">
+          <i class="fa-solid fa-microscope text-white text-xl"></i>
+        </div>
+        <div>
+          <h1 class="text-xl font-bold tracking-tight leading-none" style="color: var(--color-text);">Sheikh Lab</h1>
+          <p class="text-xs font-semibold mt-0.5" style="color: var(--color-secondary);">Jamia Hamdard</p>
+        </div>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-8 font-medium">
+        <a href="index.html#pi"           class="transition-colors hover:text-[color:var(--color-primary)]">PI Profile</a>
+        <a href="index.html#research"     class="transition-colors hover:text-[color:var(--color-primary)]">Research & Projects</a>
+        <a href="publications.html"       class="font-bold" style="color: var(--color-primary);">Publications</a>
+        <a href="people.html"             class="transition-colors hover:text-[color:var(--color-primary)]">People</a>
+        <a href="index.html#contact"      class="transition-colors hover:text-[color:var(--color-primary)]">Contact</a>
+      </nav>
+
+      <button id="menu-toggle-btn"
+              class="lg:hidden text-2xl rounded-lg focus:outline-none transition-all"
+              style="color: var(--color-text);"
+              aria-label="Toggle navigation menu"
+              aria-expanded="false"
+              onclick="toggleMobileMenu()">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+
+    <div id="mobile-menu"
+         class="hidden lg:hidden absolute top-full left-0 right-0 border-b-2 py-4 px-6 flex flex-col gap-4 shadow-lg"
+         style="background-color: var(--color-bg); border-color: var(--color-text);">
+      <a href="index.html#pi"           class="font-medium hover:text-[color:var(--color-primary)]" onclick="toggleMobileMenu()">PI Profile</a>
+      <a href="index.html#research"     class="font-medium hover:text-[color:var(--color-primary)]" onclick="toggleMobileMenu()">Research & Projects</a>
+      <a href="publications.html"       class="font-bold" style="color: var(--color-primary);" onclick="toggleMobileMenu()">Publications</a>
+      <a href="people.html"             class="font-medium hover:text-[color:var(--color-primary)]" onclick="toggleMobileMenu()">People</a>
+      <a href="index.html#contact"      class="font-medium hover:text-[color:var(--color-primary)]" onclick="toggleMobileMenu()">Contact</a>
+    </div>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="py-16 border-b-2" style="background-color: var(--color-base); border-color: var(--color-text);">
+    <div class="max-w-7xl mx-auto px-6">
+      <span class="inline-block px-4 py-1.5 border-2 rounded-full text-xs font-bold uppercase tracking-widest mb-4"
+            style="background-color: var(--color-bg); border-color: var(--color-text); color: var(--color-secondary); box-shadow: 2px 2px 0px 0px var(--color-shadow);">
+        Sheikh Lab
+      </span>
+      <h2 class="text-5xl font-serif-custom font-bold mb-3" style="color: var(--color-text);">Publications</h2>
+      <p class="text-lg font-medium max-w-2xl" style="color: color-mix(in srgb, var(--color-text) 75%, transparent);">
+        Research output from the Sheikh Immunology & Infectious Disease Lab.
+      </p>
+    </div>
+  </section>
+
+  <!-- Featured Strip -->
+  <section id="section-featured" class="py-12 border-b-2 hidden"
+           style="background-color: var(--color-base); border-color: var(--color-text);">
+    <div class="max-w-7xl mx-auto px-6">
+      <h3 class="text-xs font-bold uppercase tracking-widest mb-6 pb-2 border-b-2"
+          style="color: var(--color-primary); border-color: color-mix(in srgb, var(--color-text) 20%, transparent);">
+        Featured Publications
+      </h3>
+      <div id="grid-featured" class="grid md:grid-cols-3 gap-6"></div>
+    </div>
+  </section>
+
+  <!-- Filter Bar — collapsible -->
+  <div class="sticky top-[73px] z-40 border-b-2"
+      style="background-color: var(--color-bg); border-color: var(--color-text);">
+
+    <!-- Toggle row — always visible -->
+    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="text-xs font-bold uppercase tracking-wider opacity-50">Filter by Topic</span>
+        <!-- Active filter indicator — shown when not "All" -->
+        <span id="active-filter-label"
+              class="hidden text-xs font-bold px-2.5 py-1 rounded-full border"
+              style="background-color:var(--color-primary);color:white;border-color:var(--color-text);">
+        </span>
+      </div>
+      <button id="filter-toggle"
+              onclick="toggleFilters()"
+              class="inline-flex items-center gap-2 text-xs font-bold px-3 py-1.5 border-2 rounded-lg transition-all hover:translate-x-0.5 hover:translate-y-0.5"
+              style="border-color:var(--color-text);background-color:var(--color-bg);box-shadow:2px 2px 0px 0px var(--color-shadow);">
+        <span id="filter-toggle-label">Show Filters</span>
+        <i id="filter-toggle-icon" class="fa-solid fa-chevron-down text-[10px]"></i>
+      </button>
+    </div>
+
+    <!-- Collapsible filter buttons -->
+    <div id="filter-drawer"
+        class="hidden border-t-2 px-6 py-3"
+        style="border-color: color-mix(in srgb, var(--color-text) 15%, transparent);">
+      <div class="max-w-7xl mx-auto">
+        <div id="filter-bar" class="flex flex-wrap gap-2"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Publications by Year -->
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-6">
+      <div id="publications-list" class="space-y-12"></div>
+
+      <!-- Empty state -->
+      <div id="empty-state" class="hidden text-center py-16">
+        <i class="fa-solid fa-filter text-4xl mb-4 opacity-30"></i>
+        <p class="font-bold text-lg opacity-50">No publications match this filter.</p>
+        <button onclick="setFilter('All')"
+                class="mt-4 text-sm font-bold underline"
+                style="color: var(--color-primary);">
+          Clear filter
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t-4 py-12" style="background-color: var(--color-text); border-color: var(--color-primary);">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background-color: var(--color-primary);">
+            <i class="fa-solid fa-microscope text-white text-sm"></i>
+          </div>
+          <span class="text-lg font-bold" style="color: var(--color-bg);">Sheikh Lab</span>
+        </div>
+        <p id="footer-tagline" class="text-sm text-gray-400 mb-4"></p>
+        <span class="text-xs text-gray-500">
+          © <span id="footer-year"></span> Sheikh Lab, Jamia Hamdard. All rights reserved.
+        </span>
+      </div>
+      <div>
+        <h4 class="text-sm font-bold mb-4 uppercase tracking-wider" style="color: var(--color-base);">Helpful Navigation</h4>
+        <div class="flex flex-col gap-2 text-sm text-gray-400">
+          <a href="index.html#pi"      class="hover:text-white transition">Principal Investigator</a>
+          <a href="index.html#research" class="hover:text-white transition">Research Themes</a>
+          <a href="publications.html"  class="hover:text-white transition">Publications</a>
+          <a href="people.html"        class="hover:text-white transition">People</a>
+          <a href="index.html#contact" class="hover:text-white transition">Contact</a>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-sm font-bold mb-4 uppercase tracking-wider" style="color: var(--color-base);">Faculty & Institutional Links</h4>
+        <div id="footer-links" class="flex flex-col gap-2 text-sm text-gray-400"></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Data files -->
+  <script src="site-data.js"></script>
+  <script src="people-data.js"></script>
+  <script src="publications.js"></script>
+
+  <script>
+    const TYPE_LABELS = {
+      'article':      'Journal Article',
+      'review':       'Review Article',
+      'book-chapter': 'Book Chapter',
+      'conference':   'Conference Paper',
+    };
+
+    const TYPE_CLASSES = {
+      'article':      'type-article',
+      'review':       'type-review',
+      'book-chapter': 'type-book-chapter',
+      'conference':   'type-conference',
+    };
+
+    let allPapers  = [];
+    let activeTag  = 'All';
+
+    /* ══════════════════════════════════════════
+       Merge papers from publications.js
+       and people-data.js, deduplicate by
+       title + journal
+    ══════════════════════════════════════════ */
+    function mergePapers() {
+      const seen = new Set();
+      const merged = [];
+
+      function addPaper(p) {
+        const key = `${p.title.trim().toLowerCase()}||${p.journal.trim().toLowerCase()}`;
+        if (seen.has(key)) return;
+        seen.add(key);
+        merged.push(p);
+      }
+
+      // Source 1: publications.js
+      PUBLICATIONS.papers.forEach(addPaper);
+
+      // Source 2: people-data.js member publications
+      LAB_MEMBERS.forEach(member => {
+        if (!member.publications || member.publications.length === 0) return;
+        member.publications.forEach(addPaper);
+      });
+
+      // Sort by year descending
+      merged.sort((a, b) => b.year - a.year);
+      return merged;
+    }
+
+    /* ══════════════════════════════════════════
+       Build a single paper card
+    ══════════════════════════════════════════ */
+    function buildPaperCard(paper, featured = false) {
+      const typeLabel = TYPE_LABELS[paper.type] || paper.type;
+      const typeClass = TYPE_CLASSES[paper.type] || 'type-article';
+
+      const tagBadges = '';
+
+      const doiBtn = paper.doi
+        ? `<button class="btn-doi"
+                   onclick="copyDoi(this, '${paper.doi}')"
+                   title="Copy DOI">
+             <i class="fa-solid fa-link"></i> Copy DOI
+           </button>`
+        : '';
+
+      const titleEl = paper.doi
+        ? `<a href="${paper.doi}" target="_blank"
+              class="text-base font-bold leading-snug hover:underline"
+              style="color:var(--color-text);">${paper.title}</a>`
+        : `<span class="text-base font-bold leading-snug"
+                style="color:var(--color-text);">${paper.title}</span>`;
+
+      const featuredBadge = featured
+        ? `<span class="text-xs font-bold px-2 py-0.5 rounded-full border ml-2"
+                style="background-color:var(--color-primary);color:white;border-color:var(--color-text);">
+             Featured
+           </span>`
+        : '';
+
+      return `
+        <div class="paper-card card-offset p-6 flex flex-col gap-3"
+             data-tags="${(paper.tags || []).join(',')}">
+
+          <div class="flex flex-wrap items-start justify-between gap-2">
+            <div class="flex-1">
+              ${titleEl}
+              ${featuredBadge}
+            </div>
+            <div class="flex items-center gap-2 shrink-0 self-start">
+              <span class="${typeClass} text-xs font-bold px-2.5 py-1 rounded-lg border"
+                    style="border-color:var(--color-text);">
+                ${typeLabel}
+              </span>
+              ${doiBtn}
+            </div>
+          </div>
+
+          <p class="text-sm font-medium opacity-75">${paper.authors}</p>
+
+          <p class="text-xs font-semibold" style="color:var(--color-secondary);">
+            ${paper.journal} · ${paper.year}
+          </p>
+        </div>`;
+    }
+
+    /* ══════════════════════════════════════════
+       Copy DOI to clipboard
+    ══════════════════════════════════════════ */
+    function copyDoi(btn, doi) {
+      navigator.clipboard.writeText(doi).then(() => {
+        btn.classList.add('copied');
+        btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
+        setTimeout(() => {
+          btn.classList.remove('copied');
+          btn.innerHTML = '<i class="fa-solid fa-link"></i> Copy DOI';
+        }, 2000);
+      });
+    }
+
+    /* ══════════════════════════════════════════
+       Filter
+    ══════════════════════════════════════════ */
+    function setFilter(tag) {
+      activeTag = tag;
+
+      // Update filter button states
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+          btn.classList.toggle('active', btn.dataset.tag === tag);
+        });
+
+        // Update active filter label in toggle row
+        const labelEl = document.getElementById('active-filter-label');
+        if (tag === 'All') {
+          labelEl.classList.add('hidden');
+        } else {
+          labelEl.classList.remove('hidden');
+          labelEl.textContent = tag;
+        }
+
+      // Show/hide paper cards
+      const cards = document.querySelectorAll('.paper-card');
+      let anyVisible = false;
+
+      cards.forEach(card => {
+        const tags = card.dataset.tags.split(',');
+        const show = tag === 'All' || tags.includes(tag);
+        card.classList.toggle('hidden-paper', !show);
+        if (show) anyVisible = true;
+      });
+
+      // Show/hide year headings that have no visible papers
+      document.querySelectorAll('.year-group').forEach(group => {
+        const visibleCards = group.querySelectorAll('.paper-card:not(.hidden-paper)');
+        group.style.display = visibleCards.length === 0 ? 'none' : '';
+      });
+
+      // Empty state
+      document.getElementById('empty-state').classList.toggle('hidden', anyVisible);
+    }
+
+    /* ══════════════════════════════════════════
+       Render everything
+    ══════════════════════════════════════════ */
+    document.addEventListener('DOMContentLoaded', () => {
+      const SD = SITE_DATA;
+
+      /* ── Merge & deduplicate ── */
+      allPapers = mergePapers();
+
+      /* ── Featured strip ── */
+      const featured = allPapers
+        .filter(p => p.featured)
+        .slice(0, 3);
+
+      if (featured.length > 0) {
+        document.getElementById('section-featured').classList.remove('hidden');
+        const fGrid = document.getElementById('grid-featured');
+        featured.forEach(p => {
+          fGrid.insertAdjacentHTML('beforeend', buildPaperCard(p, true));
+        });
+      }
+
+      /* ── Collect all unique tags ── */
+      const tagSet = new Set();
+      allPapers.forEach(p => (p.tags || []).forEach(t => tagSet.add(t)));
+      const allTags = ['All', ...Array.from(tagSet).sort()];
+
+      /* ── Filter bar ── */
+      const filterBar = document.getElementById('filter-bar');
+      allTags.forEach(tag => {
+        const btn = document.createElement('button');
+        btn.className    = `filter-btn${tag === 'All' ? ' active' : ''}`;
+        btn.dataset.tag  = tag;
+        btn.textContent  = tag;
+        btn.onclick      = () => setFilter(tag);
+        filterBar.appendChild(btn);
+      });
+
+      /* ── Group by year descending ── */
+      const byYear = {};
+      allPapers.forEach(p => {
+        if (!byYear[p.year]) byYear[p.year] = [];
+        byYear[p.year].push(p);
+      });
+
+      const sortedYears = Object.keys(byYear).sort((a, b) => b - a);
+      const listEl = document.getElementById('publications-list');
+
+      sortedYears.forEach(year => {
+        const group = document.createElement('div');
+        group.className = 'year-group';
+
+        const heading = document.createElement('div');
+        heading.className   = 'year-heading';
+        heading.textContent = year;
+        group.appendChild(heading);
+
+        const grid = document.createElement('div');
+        grid.className = 'space-y-4';
+
+        byYear[year].forEach(paper => {
+          grid.insertAdjacentHTML('beforeend', buildPaperCard(paper, false));
+        });
+
+        group.appendChild(grid);
+        listEl.appendChild(group);
+      });
+
+      /* ── Footer ── */
+      document.getElementById('footer-tagline').textContent = SD.footer.tagline;
+      document.getElementById('footer-year').textContent    = new Date().getFullYear();
+      document.getElementById('footer-links').innerHTML = `
+        <a href="${SD.pi.facultyUrl}" target="_blank" class="hover:text-white transition">Jamia Hamdard Institutional Profile</a>
+        <a href="${SD.pi.scholarUrl}" target="_blank" class="hover:text-white transition">Google Scholar Profile</a>`;
+    });
+
+    /* ── Mobile Menu ── */
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const btn  = document.getElementById('menu-toggle-btn');
+      const isHidden = menu.classList.toggle('hidden');
+      btn.setAttribute('aria-expanded', String(!isHidden));
+    }
+
+    document.addEventListener('click', (e) => {
+      const menu   = document.getElementById('mobile-menu');
+      const btn    = document.getElementById('menu-toggle-btn');
+      const header = document.querySelector('header');
+      if (!menu.classList.contains('hidden') && !header.contains(e.target)) {
+        menu.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    /* ── Lenis ── */
+    function initLenis() {
+      const lenis = new Lenis({
+        duration: 0.5,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smooth: true,
+      });
+      function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+      requestAnimationFrame(raf);
+    }
+    /* ── Toggle filter drawer ── */
+    function toggleFilters() {
+      const drawer  = document.getElementById('filter-drawer');
+      const label   = document.getElementById('filter-toggle-label');
+      const icon    = document.getElementById('filter-toggle-icon');
+      const isHidden = drawer.classList.toggle('hidden');
+      label.textContent = isHidden ? 'Show Filters' : 'Hide Filters';
+      icon.className    = isHidden
+        ? 'fa-solid fa-chevron-down text-[10px]'
+        : 'fa-solid fa-chevron-up text-[10px]';
+    }
+  </script>
+
+  <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js" async onload="initLenis()"></script>
+
+</body>
+</html>
